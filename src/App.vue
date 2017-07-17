@@ -58,27 +58,10 @@ export default {
       }
     },
     bind () {
-      // alert('绑定')
+      Util.mailBridge('openFSMailBindingPage')
     },
     closeWindow () {
-      if (Util.device.pc) {
-        try {
-          if (parent) {
-            parent.FS.emailOption.hide()
-          }
-        } catch (err) {
-          console.log('closeWindow: ' + err)
-        }
-      } else {
-        let FSMailBridge = window.FSMailBridge
-        FSMailBridge && FSMailBridge.handle('closeDialog', null)
-        // 兼容新版webview的ios
-        if (!FSMailBridge) {
-          window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.FSMailBridge.postMessage({
-            method: 'closeDialog'
-          })
-        }
-      }
+      Util.mailBridge('closeDialog')
     }
   },
   created () {
