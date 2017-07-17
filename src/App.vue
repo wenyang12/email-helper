@@ -6,7 +6,7 @@
       <p class="email-at-content__content">或前往其他邮件客户端查看该邮件</p>
     </section>
     <footer class="email-at__footer">
-        <inputbutton :inputDatas="inputbuttonBind" :isDisabled="disabled" @click.submit.stop.prevent.native="bind"></inputbutton>
+        <inputbutton :inputDatas="inputbuttonBind" :isDisabled="disabled" @click.stop.prevent.native="bind"></inputbutton>
     </footer>
     <div class="email-at-close" @click="closeWindow"></div>
   </section>
