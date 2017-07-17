@@ -1,0 +1,15 @@
+// 单行省略
+.ellipsis{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+//多行省略
+.ellipsis-mutil(@clamp: 2){
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: @clamp;
+    -webkit-box-orient: vertical;
+    height: @clamp+'em';
+}
