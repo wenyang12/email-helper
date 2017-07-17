@@ -23,25 +23,25 @@ import Util from '@/core/base/util'
 <style lang="less">
 @import '~@/assets/style/class';
 @contentsizecolor: #D5B16D;
-@layout: 47/55rem 96/55rem;
+@layout: 47/50rem 96/50rem;
   .email-at-detail{
     padding:  @layout;
     text-align: center;
     &__tips{
-      font-size: 32/55rem;
+      font-size: 32/50rem;
       color: #9D6823;
       font-weight: normal;
-      margin-bottom: 14/55rem;
+      margin-bottom: 14/50rem;
     }
     &__title{
-      font-size: 28/55rem;
-      margin-bottom: 8/55rem;
+      font-size: 28/50rem;
+      margin-bottom: 8/50rem;
       color: @contentsizecolor;
       width: 100%;
       .ellipsis();
     }
     &__content{
-      font-size: 24/55rem;
+      font-size: 24/50rem;
       line-height: 1.5;
       color: @contentsizecolor;
       width:100%;

@@ -26,6 +26,7 @@
     box-shadow: 0 1px 0 0 #eee, inset 0 1px 0 0 #eee;
     button{
       border:none;
+      cursor: pointer;
       color: #3487e2;
       width:100%;
       height:100%;

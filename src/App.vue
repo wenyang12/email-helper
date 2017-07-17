@@ -6,7 +6,7 @@
       <p class="email-at-content__content">或前往其他邮件客户端查看该邮件</p>
     </section>
     <footer class="email-at__footer">
-        <inputbutton :inputDatas="inputbuttonBind" :isDisabled="disabled" @click.stop.prevent.native="bind"></inputbutton>
+        <inputbutton :inputDatas="inputbuttonBind" :isDisabled="disabled" @click.stop.prevent="bind"></inputbutton>
     </footer>
     <div class="email-at-close" @click="closeWindow"></div>
   </section>
@@ -58,7 +58,7 @@ export default {
       }
     },
     bind () {
-      alert('绑定')
+      // alert('绑定')
     },
     closeWindow () {
       if (Util.device.pc) {
@@ -150,6 +150,12 @@ body{
         background:  @activeColor;
         border-radius: 10/50rem;
         font-size: 34/50rem;
+        &:active{
+          background: lighten(@activeColor, 10%); 
+        }
+        &:hover{
+          background: lighten(@activeColor, 10%); 
+        }
       }
     }
   }
