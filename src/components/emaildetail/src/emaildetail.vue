@@ -23,7 +23,7 @@ import Util from '@/core/base/util'
 <style lang="less">
 @import '~@/assets/style/class';
 @contentsizecolor: #D5B16D;
-@layout: 47/50rem 96/50rem;
+@layout: (47+65)/50rem 96/50rem;
   .email-at-detail{
     padding:  @layout;
     text-align: center;

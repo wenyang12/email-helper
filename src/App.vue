@@ -6,9 +6,9 @@
       <p class="email-at-content__content">或前往其他邮件客户端查看该邮件</p>
     </section>
     <footer class="email-at__footer">
-        <inputbutton :inputDatas="inputbuttonBind" :isDisabled="disabled" @click.stop.prevent="bind"></inputbutton>
+        <inputbutton :inputDatas="inputbuttonBind" :isDisabled="disabled" @click.native="bind"></inputbutton>
     </footer>
-    <div class="email-at-close" ref="emailClose" @click="closeWindow"></div>
+    <div class="email-at-close" @click="closeWindow"></div>
   </section>
 </template>
 <script>
@@ -64,7 +64,7 @@ export default {
       Util.mailBridge('closeDialog')
     },
     getPageHeight () { // 获取页面高度
-      return (this.$refs.emailAt.offsetHeight - this.$refs.emailClose.offsetTop)
+      return this.$refs.emailAt.offsetHeight
     }
   },
   created () {
@@ -113,9 +113,13 @@ export default {
 @at-close-height: 30/50rem;
 @at-bg-width: 600/50rem;
 @at-bg-height: 726/50rem;
+@at-close-seat: 65/50rem; // 预留给关闭按钮的占位符
 @activeColor: #FF8C41;
 body{
-  background-color: rgba(0, 0, 0, .7);
+  background-color:rgba(0,0,0,.6);
+}
+.email-at-wrapper{
+  position:relative;
 }
 .email-at{
   position: fixed;
@@ -126,8 +130,9 @@ body{
   right: 0;
   .img-retina(@at-bg,@at-bg-2x,@at-bg-width, @at-bg-height);
   background-repeat: no-repeat;
+  background-position: left bottom;
   width: @at-bg-width; 
-  height: @at-bg-height;
+  height: @at-bg-height + @at-close-seat;
   &__footer{
     position: absolute;
     bottom: 55/50rem;
@@ -174,7 +179,7 @@ body{
   width: @at-close-width; 
   height: @at-close-height;
   position: absolute;
-  top:-75/50rem;
+  top: 0;
   right: 20/50rem;
   cursor: pointer;
 }
