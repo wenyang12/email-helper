@@ -1,5 +1,5 @@
 <template>
-  <section class="email-at">
+  <section class="email-at" ref="emailAt">
     <emaildetail :data='detaildata'></emaildetail>
     <section class="email-at-content">
       <h3 class="email-at-content__title">绑定邮箱帐号后即可查看全文</h3>
@@ -8,7 +8,7 @@
     <footer class="email-at__footer">
         <inputbutton :inputDatas="inputbuttonBind" :isDisabled="disabled" @click.stop.prevent="bind"></inputbutton>
     </footer>
-    <div class="email-at-close" @click="closeWindow"></div>
+    <div class="email-at-close" ref="emailClose" @click="closeWindow"></div>
   </section>
 </template>
 <script>
@@ -62,6 +62,9 @@ export default {
     },
     closeWindow () {
       Util.mailBridge('closeDialog')
+    },
+    getPageHeight () { // 获取页面高度
+      return (this.$refs.emailAt.offsetHeight - this.$refs.emailClose.offsetTop)
     }
   },
   created () {
@@ -91,6 +94,10 @@ export default {
         text: err.errorMessage
       })
     })
+  },
+  mounted () {
+    let height = Math.ceil(this.getPageHeight()) + ''
+    Util.mailBridge('setWebContentHeight', height)
   }
 }
 
