@@ -69,12 +69,15 @@ export default {
   },
   created () {
     let self = this
-    let id = Util.getQuery('id') || 98346
+    let id = Util.getQuery('id')
+    let emailId = Util.getQuery('emailId')
     this.showLoading()
-    Service.detail({
+    Service.detailById({
       getData: {
-        id: id
+        id: id,
+        emailId: emailId
       },
+      errAlert: 0,
       method: 'get',
       always () {
         self.closeLoading()
@@ -91,7 +94,7 @@ export default {
     }).catch((err) => {
       Success.toast({
         duration: 2000,
-        text: err.errorMessage
+        text: err.errorMessage || err.message
       })
     })
   },
